@@ -1,3 +1,5 @@
+import os.path
+
 from setuptools import setup, find_packages
 
 
@@ -10,5 +12,7 @@ setup(
     install_requires=(
         'aioredis',
     ),
-    include_package_data = True,
+    package_data={'aioredisqueue': (
+        os.path.join('lua', '*' + os.path.extsep + 'lua'),
+    )},
 )
